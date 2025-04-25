@@ -61,6 +61,9 @@ jobs:
         with:
           version: 8
           run_install: false
+      - name: Add pnpm to PATH
+        if: steps.detect-package-manager.outputs.manager == 'pnpm'
+        run: echo "$(pnpm store path --silent)/.." >> $GITHUB_PATH
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
