@@ -75,14 +75,14 @@ jobs:
       - name: Restore cache
         uses: actions/cache@v4
         with:
+          # Cache node_modules and .nuxt directories
           path: |
-            dist
+            node_modules 
             .nuxt
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
+          # Generate cache key based on lock file hash
+          key: ${{ runner.os }}-${{ steps.detect-package-manager.outputs.manager }}-nuxt-${{ hashFiles('**/pnpm-lock.yaml') }} # Adjust if using yarn or npm
           restore-keys: |
-            ${{ runner.os }}-nuxt-build-
-      - name: Clean node_modules
-        run: rm -rf node_modules
+            ${{ runner.os }}-${{ steps.detect-package-manager.outputs.manager }}-nuxt-
       - name: Install dependencies (pnpm)
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         run: pnpm install
