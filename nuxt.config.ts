@@ -77,19 +77,16 @@ export default defineNuxtConfig({
     navigation: {
       fields: ['navOrder']
     },
-    cacheVersion: 2, // Increment this to reset the cache if needed
-    
-    // Prevent excessive API calls
-    experimental: {
-      clientDB: true  // Use client-side database when possible
-    }
+    cacheVersion: 2 // Increment this to reset the cache if needed
   },
 
   // Add nitro optimization
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/']
+      routes: ['/'],
+      // Ignore Nuxt Content's internal API routes
+      ignore: ['/api/_content'] 
     }
   },
 
@@ -100,9 +97,10 @@ export default defineNuxtConfig({
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'content': ['@nuxt/content'],
-          }
+          // Remove manual chunking for content
+          // manualChunks: {
+          //   'content': ['@nuxt/content'],
+          // }
         }
       }
     }
