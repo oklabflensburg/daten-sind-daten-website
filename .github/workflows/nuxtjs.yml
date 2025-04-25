@@ -81,6 +81,8 @@ jobs:
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
+      - name: Clean node_modules
+        run: rm -rf node_modules
       - name: Install dependencies (pnpm)
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         run: pnpm install
