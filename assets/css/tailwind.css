@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:bg-gray-900 dark:text-white transition-colors duration-300;
+  }
+}
+
+/* Customize markdown content */
+@layer components {
+  .prose :where(h1):not(:where([class~="not-prose"] *)) {
+    @apply text-3xl font-bold mt-8 mb-4;
+  }
+
+  .prose :where(h2):not(:where([class~="not-prose"] *)) {
+    @apply text-2xl font-bold mt-6 mb-3;
+  }
+
+  .prose :where(h3):not(:where([class~="not-prose"] *)) {
+    @apply text-xl font-semibold mt-5 mb-2;
+  }
+
+  .prose :where(a):not(:where([class~="not-prose"] *)) {
+    @apply text-blue-600 dark:text-blue-400 hover:underline;
+  }
+
+  .prose :where(ul):not(:where([class~="not-prose"] *)) {
+    @apply list-disc list-inside mb-4 space-y-2;
+  }
+
+  .prose :where(ol):not(:where([class~="not-prose"] *)) {
+    @apply list-decimal list-inside mb-4 space-y-2;
+  }
+
+  .prose :where(pre):not(:where([class~="not-prose"] *)) {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 my-4 overflow-x-auto;
+  }
+}
+
+:root {
+  font-family: Inter, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+    font-optical-sizing: auto;
+  }
+}
+
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/InterVariable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: InterVariable;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/InterVariable-Italic.woff2') format('woff2');
+}
