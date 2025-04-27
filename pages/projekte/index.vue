@@ -8,20 +8,18 @@
         <ContentList path="/projekte" :query="{ sort: [{ date: -1 }] }">
           <template #default="{ list }">
             <div v-for="project in list" :key="project._path"
-              class="col-span-1 border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-              <div class="project-meta" v-if="project.date">
-                <span>{{ formatDate(project.date) }}</span>
-              </div>
-              <h2 class="text-xl font-bold mt-2">{{ project.title || 'Untitled Project' }}</h2>
-              <div class="mt-3">
-                <div v-if="hasValidImage(project)" class="flex-none w-full">
+              class="col-span-1 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div v-if="hasValidImage(project)" class="flex-none w-full">
                   <NuxtLink :to="project._path">
                     <img :src="project.image" alt="Project Image" class="rounded" />
                   </NuxtLink>
                 </div>
-                <div class="flex-1">
-                  <p v-if="project.description" class="text-lg">{{ truncateDescription(project.description) }}</p>
-                </div>
+              <div class="project-meta" v-if="project.date">
+                <span>{{ formatDate(project.date) }}</span>
+              </div>
+              <h2 class="text-2xl font-bold mt-2">{{ project.title || 'Kein Titel' }}</h2>
+              <div class="flex-1 text-lg">
+                <p v-if="project.description" class="text-lg">{{ truncateDescription(project.description) }}</p>
               </div>
               <NuxtLink :to="project._path" class="read-more mt-4">weiter lesen</NuxtLink>
             </div>
