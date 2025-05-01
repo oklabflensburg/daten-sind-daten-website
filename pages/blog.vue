@@ -5,7 +5,7 @@
 
       <ContentList path="/blog" :query="{ sort: [{ date: -1 }] }">
         <template #default="{ list }">
-          <div v-for="article in list" :key="article._path" class="article-item mb-8">
+          <div v-for="article in list" :key="article._path" class="xxx article-item mb-8">
             <div class="article-meta" v-if="article.date">
               <span>{{ new Date(article.date).toLocaleDateString() }}</span>
             </div>
@@ -28,25 +28,11 @@ definePageMeta({
   layout: 'default'
 })
 </script>
+
 <style scoped>
-.prose img {
-  width: 100px;
-}
-
-.article-item {
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 1.5rem;
-}
-
 .read-more {
   display: inline-block;
   margin-top: 0.5rem;
   font-weight: bold;
-}
-
-.article-meta {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.5rem;
 }
 </style>

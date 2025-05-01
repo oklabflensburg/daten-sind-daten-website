@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   content: {
     search: {
       // Reduce memory usage for search
-      indexed: true, 
+      indexed: true,
       // Only index essential fields to reduce memory footprint
       fields: ['title', 'description', 'body']
     },
@@ -86,7 +86,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ['/'],
       // Ignore Nuxt Content's internal API routes
-      ignore: ['/api/_content'] 
+      ignore: ['/api/_content']
     }
   },
 

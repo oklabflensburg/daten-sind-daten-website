@@ -17,6 +17,11 @@ This project involved developing a cross-platform mobile application for invento
 - Firebase
 - Expo
 
-![App Screenshot](/images/app-screenshot.jpg)
+![App Screenshot](https://grain.one/wp-content/uploads/2024/01/Score-Segment.jpg)
+
+The application allows warehouse staff to scan products and manage inventory in real-time.
+
+
+<img src="https://grain.one/wp-content/uploads/2024/01/Score-Segment.jpg" alt="A cute cat" style="width:300px; height:auto;">
 
 The application allows warehouse staff to scan products and manage inventory in real-time.
