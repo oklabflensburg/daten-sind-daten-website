@@ -1,0 +1,277 @@
+/* Use Inter: */
+:root { font-family: 'Inter', serif; }
+
+@supports (font-variation-settings: normal) {
+    :root { font-family: 'Inter var', serif; }
+}
+
+
+/* CSS Reset */
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code,
+img, strong, em, ul, li, dl, dt, dd, form, fieldset, input, textarea, table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Inter';
+    vertical-align: baseline;
+}
+
+body {
+    font-size: 1.05em;
+}
+
+/* Optionally set box-sizing for all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+:root {
+    --page-color: #f8f8f8;
+    --border-color: #d0d0d0;
+    --primary-color: #1A32E5;
+    --secondary-color: #2ecc71;
+    --background-color: #ffffff;
+    --text-color: #333;
+    --title-color: #193544;
+    --hover-color: #1A32E5  ;
+}
+
+body {
+    background-color: var(--page-color);
+}
+
+div {
+    padding: 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: var(--title-color);
+}
+
+h1 {
+    font-size: 2.6em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p {
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--text-color);
+}
+
+
+pre {
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-top: 16px;
+}
+code {
+    font-family: "SF Mono", "Courier New", Courier, monospace;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ddd; /* Light grey top border */
+    margin: 20px 0;
+}
+
+table, td, th {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    padding: 0.4rem;
+}
+
+.image-container {
+    background-size: cover;  /* Maintains the aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; /* Ensures scaling doesn't overflow */
+    position: relative;
+}
+
+.image-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: inherit;  /* Inherit the background image */
+    background-size: inherit;
+    background-position: inherit;
+    background-repeat: inherit;
+    transform: scale(1);  /* Normal size */
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover::before {
+    transform: scale(1.1);  /* Scales the background image */
+}
+
+
+#svg-link-arrow-right {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#svg-link-arrow-right:hover {
+    transform: translateX(20px);
+}
+
+#svg-link-arrow-right path {
+    transition: fill 0.3s ease;
+    fill: var(--text-color);
+}
+
+#svg-link-arrow-right:hover path {
+    fill: var(--hover-color);
+}
+
+
+/* The content area should be centered within a maximum width */
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centering the container */
+    padding: 0px;
+    background-color: var(--background-color);
+}
+
+.page-header {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    padding: 0;
+}
+
+.page-header div {
+    padding: 40px;
+    flex: 1;
+}
+
+.page-footer {
+    background-color: var(--background-color);
+    height: 200px;
+}
+
+.main-navigation {
+    font-size: 1.2em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-navigation li {
+    width: 100%;
+    padding: 6px 0;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+}
+
+.main-navigation li:hover {
+    color: var(--hover-color);
+}
+
+
+.block-type1 {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+}
+
+.block-type1 div {
+    padding: 40px;
+    flex: 1;
+}
+
+
+.blog-outer {
+    padding: 0px 40px;
+}
+
+/* Flex container */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap when necessary */
+    width: 100%;
+    background-color: white;
+    padding: 0;
+    margin: 0 0 24px 0;
+    border: 1px solid var(--border-color);
+}
+
+/* Left div - takes remaining space and shrinks if necessary */
+.blog-container div:nth-child(1) {
+    flex-grow: 1;   /* The left div takes up remaining space */
+    flex-shrink: 1; /* Allows shrinking */
+    flex-basis: 0;  /* Allow it to shrink from zero */
+    min-width: 0;   /* Allow the div to shrink to smaller than 400px */
+    overflow: hidden;  /* Optional: prevent overflow if the content is too large */
+    padding: 20px;
+}
+
+/* Right div - has a fixed width of 400px */
+.blog-container div:nth-child(2) {
+    flex-shrink: 0; /* Prevents shrinking */
+    flex-basis: 300px; /* Initially 400px width */
+    aspect-ratio: 4 / 3;
+    padding: 0px;
+}
+
+
+.markdown-body {
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.markdown-body ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin: 1em 0;
+}
+
+.markdown-body ul li {
+    padding: 0.0em 1em;
+    margin: 0.3em 0;
+    position: relative;
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+}
+
+.markdown-body ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0em;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+
+/* When wrapping (i.e., when space is too tight), right div takes 100% */
+@media (max-width: 1000px) {
+    .blog-container div:nth-child(2) {
+        flex-basis: 100%; /* Right div takes 100% width when wrapping */
+        aspect-ratio: 2 / 1;
+        min-width: 0;
+    }
+}
+
+/* Optional: For responsive design, adjust the layout for smaller screens */
+@media (max-width: 1200px) {
+    .page-container {
+        width: 100%;
+    }
+}
