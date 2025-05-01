@@ -15,4 +15,5 @@ Tested with PHP 8.4.4
 php -S localhost:8000
 ```
 
-Open [[http://loc](http://localhost:8000/src/)](http://localhost:8000/src/)
+Open in browser:
+<http://localhost:8000/src/>
