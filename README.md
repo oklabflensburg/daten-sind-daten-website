@@ -2,5 +2,7 @@
 
 ## Install and run
 
+```sh
 pnpm install
 pnmp run dev
+```
