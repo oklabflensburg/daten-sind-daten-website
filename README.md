@@ -9,6 +9,8 @@ pnmp run dev
 
 ## Run PHP version
 
+Tested with PHP 8.4.4
+
 ```sh
 php -S localhost:8000
 ```
