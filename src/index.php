@@ -45,7 +45,7 @@
         <?php
             $extract_callback = function($block, $file) {
                 foreach (explode("\n", $block) as $line) {
-                    if (preg_match('/^date\s*=\s*(\d{4}-\d{2}-\d{2})$/', trim($line), $dateMatch)) {
+                    if (preg_match('/^date\s*:\s*(\d{4}-\d{2}-\d{2})$/', trim($line), $dateMatch)) {
                         return [
                             'file' => $file,
                             'date' => $dateMatch[1]
@@ -76,6 +76,7 @@
 
         <div class="page-footer">
             <p>
+                Datenschutz<br>
                 Impressum<br>
                 Kontakt
             </p>
